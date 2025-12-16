@@ -1,0 +1,1591 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visible Digital Business - Expertos en Google Business Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #4285F4;
+            --primary-green: #34A853;
+            --secondary-yellow: #FBBC04;
+            --secondary-red: #EA4335;
+            --dark: #1a1a2e;
+            --darker: #0f0f1e;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            overflow-x: hidden;
+            background: #fff;
+        }
+
+        /* Header Premium */
+        header {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 30px rgba(0,0,0,0.08);
+            border-bottom: 1px solid rgba(66, 133, 244, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            padding: 0.8rem 0;
+            box-shadow: 0 5px 40px rgba(0,0,0,0.12);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 3rem;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-green) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-green) 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(66, 133, 244, 0.3);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--primary-green));
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-green) 100%);
+            color: white !important;
+            padding: 0.7rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(66, 133, 244, 0.4);
+            transition: all 0.3s;
+        }
+
+        .nav-cta::after {
+            display: none;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(66, 133, 244, 0.5);
+        }
+
+        /* Hero Premium */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            padding: 180px 3rem 120px;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(66, 133, 244, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(52, 168, 83, 0.3) 0%, transparent 50%);
+            animation: gradientShift 15s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 4.2rem;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            letter-spacing: -2px;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero-text h1 span {
+            background: linear-gradient(90deg, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-text p {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+            font-weight: 400;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            animation: fadeInUp 1.2s ease;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary-blue);
+            padding: 1.2rem 2.8rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 1.2rem 2.8rem;
+            border: 2px solid white;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary-blue);
+        }
+
+        .hero-visual {
+            position: relative;
+            animation: fadeInRight 1s ease;
+        }
+
+        .hero-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            padding: 2.5rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: white;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-top: 0.5rem;
+        }
+
+        /* Trusted By Section */
+        .trusted {
+            background: white;
+            padding: 3rem 3rem;
+            text-align: center;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .trusted p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+        }
+
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .trust-badge {
+            font-size: 2rem;
+            opacity: 0.6;
+            transition: opacity 0.3s;
+        }
+
+        .trust-badge:hover {
+            opacity: 1;
+        }
+
+        /* Sections */
+        section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 7rem 3rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(66, 133, 244, 0.1), rgba(52, 168, 83, 0.1));
+            color: var(--primary-blue);
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            letter-spacing: -1.5px;
+        }
+
+        .section-subtitle {
+            font-size: 1.3rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Problema Premium */
+        .problema {
+            background: linear-gradient(180deg, #fff 0%, #f8f9fa 100%);
+        }
+
+        .problema-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+        }
+
+        .problema-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid #e9ecef;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .problema-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary-red), var(--secondary-yellow));
+        }
+
+        .problema-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .problema-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .problema-card h3 {
+            font-size: 1.6rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .problema-card p {
+            color: var(--gray);
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        /* Beneficios Premium */
+        .beneficios {
+            background: white;
+        }
+
+        .beneficios-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .beneficio-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 2.5rem;
+            border-radius: 20px;
+            transition: all 0.4s;
+            border-left: 4px solid var(--primary-blue);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .beneficio-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+            opacity: 0.05;
+            border-radius: 50%;
+            transform: translate(30%, -30%);
+        }
+
+        .beneficio-card:hover {
+            transform: translateX(10px);
+            background: white;
+            box-shadow: 0 10px 40px rgba(66, 133, 244, 0.15);
+        }
+
+        .beneficio-card h3 {
+            font-size: 1.4rem;
+            color: var(--dark);
+            margin-bottom: 0.8rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .beneficio-icon {
+            font-size: 2rem;
+        }
+
+        .beneficio-card p {
+            color: var(--gray);
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        /* Paquetes Premium */
+        .paquetes {
+            background: linear-gradient(180deg, #f8f9fa 0%, #fff 100%);
+        }
+
+        .paquetes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .paquete-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 25px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid #e9ecef;
+            position: relative;
+        }
+
+        .paquete-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.15);
+        }
+
+        .paquete-card.destacado {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-green) 100%);
+            color: white;
+            border: none;
+            transform: scale(1.05);
+        }
+
+        .paquete-card.destacado:hover {
+            transform: translateY(-15px) scale(1.08);
+        }
+
+        .paquete-card.destacado h3,
+        .paquete-card.destacado .precio,
+        .paquete-card.destacado li {
+            color: white;
+        }
+
+        .badge {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4);
+        }
+
+        .paquete-card h3 {
+            font-size: 1.8rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            font-weight: 900;
+        }
+
+        .precio {
+            font-size: 3.5rem;
+            color: var(--primary-blue);
+            font-weight: 900;
+            margin: 1.5rem 0;
+            letter-spacing: -2px;
+        }
+
+        .precio span {
+            font-size: 1rem;
+            color: var(--gray);
+            font-weight: 500;
+            display: block;
+            margin-top: 0.5rem;
+        }
+
+        .paquete-card.destacado .precio span {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .paquete-card ul {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .paquete-card li {
+            padding: 0.9rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            color: var(--gray);
+            font-size: 1.05rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .paquete-card.destacado li {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .paquete-card li:before {
+            content: "✓";
+            color: var(--primary-green);
+            font-weight: 900;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .paquete-card.destacado li:before {
+            color: #FFD700;
+        }
+
+        .paquete-btn {
+            width: 100%;
+            padding: 1.2rem;
+            border: 2px solid var(--primary-blue);
+            background: transparent;
+            color: var(--primary-blue);
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 1.5rem;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+        }
+
+        .paquete-btn:hover {
+            background: var(--primary-blue);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .paquete-card.destacado .paquete-btn {
+            background: white;
+            color: var(--primary-blue);
+            border: none;
+        }
+
+        .paquete-card.destacado .paquete-btn:hover {
+            background: #FFD700;
+            color: var(--dark);
+        }
+
+        /* Proceso Timeline */
+        .proceso {
+            background: white;
+        }
+
+        .timeline {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, var(--primary-blue), var(--primary-green));
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            width: 45%;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e9ecef;
+            transition: all 0.4s;
+        }
+
+        .timeline-content:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 50px rgba(66, 133, 244, 0.15);
+        }
+
+        .timeline-number {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 900;
+            box-shadow: 0 5px 20px rgba(66, 133, 244, 0.4);
+            z-index: 1;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.6rem;
+            color: var(--dark);
+            margin-bottom: 0.8rem;
+            font-weight: 800;
+        }
+
+        .timeline-content p {
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        /* Testimonios Premium */
+        .testimonios {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .testimonios-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+        }
+
+        .testimonio-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s;
+            position: relative;
+        }
+
+        .testimonio-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 25px;
+            font-size: 8rem;
+            color: rgba(66, 133, 244, 0.1);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .testimonio-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .estrellas {
+            color: #FFD700;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonio-card p {
+            color: var(--dark);
+            line-height: 1.8;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .autor {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .autor-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 1.3rem;
+        }
+
+        .autor-info {
+            flex: 1;
+        }
+
+        .autor-nombre {
+            font-weight: 700;
+            color: var(--dark);
+            font-size: 1.1rem;
+        }
+
+        .autor-empresa {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
+            color: white;
+            padding: 7rem 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(66, 133, 244, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(52, 168, 83, 0.2) 0%, transparent 50%);
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section h2 {
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.4rem;
+            margin-bottom: 3rem;
+            opacity: 0.95;
+        }
+
+        /* Contact Form Premium */
+        .contacto-form {
+            max-width: 700px;
+            margin: 3rem auto 0;
+            background: white;
+            padding: 3rem;
+            border-radius: 25px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--dark);
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem 1.2rem;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 4px rgba(66, 133, 244, 0.1);
+        }
+
+        .submit-button {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-green) 100%);
+            color: white;
+            padding: 1.3rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.4s;
+            box-shadow: 0 10px 30px rgba(66, 133, 244, 0.3);
+        }
+
+        .submit-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(66, 133, 244, 0.4);
+        }
+
+        /* Footer Premium */
+        footer {
+            background: var(--darker);
+            color: white;
+            padding: 4rem 3rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.7;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section ul li a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* WhatsApp Float Premium */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            box-shadow: 0 10px 40px rgba(37, 211, 102, 0.5);
+            cursor: pointer;
+            z-index: 1000;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 10px 40px rgba(37, 211, 102, 0.5);
+            }
+            50% {
+                box-shadow: 0 10px 60px rgba(37, 211, 102, 0.8);
+            }
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.15);
+            box-shadow: 0 15px 60px rgba(37, 211, 102, 0.7);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-visual {
+                display: none;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 0 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 140px 1.5rem 80px;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-text p {
+                font-size: 1.1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            section {
+                padding: 4rem 1.5rem;
+            }
+
+            h2 {
+                font-size: 2.2rem;
+            }
+
+            .problema-grid,
+            .beneficios-grid,
+            .paquetes-grid,
+            .testimonios-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .paquete-card.destacado {
+                transform: scale(1);
+            }
+
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item {
+                flex-direction: column;
+                align-items: flex-start;
+                padding-left: 80px;
+            }
+
+            .timeline-item:nth-child(even) {
+                flex-direction: column;
+            }
+
+            .timeline-content {
+                width: 100%;
+            }
+
+            .timeline-number {
+                left: 30px;
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <nav>
+            <div class="logo">
+                <div class="logo-icon">📍</div>
+                Visible Digital Business
+            </div>
+            <div class="nav-links">
+                <a href="#beneficios">Beneficios</a>
+                <a href="#paquetes">Paquetes</a>
+                <a href="#proceso">Cómo Funciona</a>
+                <a href="#testimonios">Casos de Éxito</a>
+                <a href="#contacto" class="nav-cta">Empezar Ahora</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Premium -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Tu Negocio <span>INVISIBLE</span> en Google Pierde Dinero Cada Día</h1>
+                <p>Ponemos tu negocio en Google Maps para que cuando tus clientes busquen, te encuentren a TI primero. Más visibilidad = Más clientes = Más ventas.</p>
+                <div class="hero-buttons">
+                    <a href="#contacto" class="btn-primary">
+                        Quiero Aparecer en Google
+                        <span>→</span>
+                    </a>
+                    <a href="#paquetes" class="btn-secondary">Ver Paquetes</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-card">
+                    <h3 style="color: white; font-size: 1.8rem; margin-bottom: 1.5rem;">Resultados Comprobados</h3>
+                    <div class="stat-grid">
+                        <div class="stat-item">
+                            <span class="stat-number">+300%</span>
+                            <span class="stat-label">Más Llamadas</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">48h</span>
+                            <span class="stat-label">Tiempo Activación</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Clientes Satisfechos</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">24/7</span>
+                            <span class="stat-label">Visible Online</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted By -->
+    <div class="trusted">
+        <p>Confiado por negocios locales en todo Lima</p>
+        <div class="trust-badges">
+            <span class="trust-badge">🍽️</span>
+            <span class="trust-badge">💇</span>
+            <span class="trust-badge">🔧</span>
+            <span class="trust-badge">🏪</span>
+            <span class="trust-badge">🎨</span>
+            <span class="trust-badge">💼</span>
+        </div>
+    </div>
+
+    <!-- Problema -->
+    <section class="problema">
+        <div class="section-header">
+            <span class="section-tag">El Problema Real</span>
+            <h2>¿Por Qué Pierdes Clientes?</h2>
+            <p class="section-subtitle">Estos son los 3 errores más costosos que cometen los negocios locales</p>
+        </div>
+        <div class="problema-grid">
+            <div class="problema-card">
+                <div class="problema-icon">🔍</div>
+                <h3>No Apareces en Google</h3>
+                <p>El 92% de las personas buscan negocios en Google. Si no estás ahí, literalmente no existes para tus potenciales clientes.</p>
+            </div>
+            <div class="problema-card">
+                <div class="problema-icon">📱</div>
+                <h3>Tu Competencia Te Gana</h3>
+                <p>Mientras tú no apareces, tu competencia está recibiendo todas las llamadas y visitas que deberían ser tuyas.</p>
+            </div>
+            <div class="problema-card">
+                <div class="problema-icon">💰</div>
+                <h3>Dinero Perdido Diario</h3>
+                <p>Cada día sin Google Business son 10-20 clientes potenciales que van a otros negocios. Son miles de soles perdidos al mes.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beneficios -->
+    <section id="beneficios" class="beneficios">
+        <div class="section-header">
+            <span class="section-tag">La Solución</span>
+            <h2>Lo Que Lograrás con Nosotros</h2>
+            <p class="section-subtitle">Resultados reales y medibles desde el primer día</p>
+        </div>
+        <div class="beneficios-grid">
+            <div class="beneficio-card">
+                <h3>
+                    <span class="beneficio-icon">📍</span>
+                    Aparece en Google Maps
+                </h3>
+                <p>Tu negocio aparecerá cuando la gente busque servicios como el tuyo en tu zona. Visibilidad 24/7.</p>
+            </div>
+            <div class="beneficio-card">
+                <h3>
+                    <span class="beneficio-icon">📞</span>
+                    Llamadas Directas
+                </h3>
+                <p>Los clientes podrán llamarte con un solo click desde tu perfil de Google. Sin intermediarios.</p>
+            </div>
+            <div class="beneficio-card">
+                <h3>
+                    <span class="beneficio-icon">⭐</span>
+                    Reseñas que Venden
+                </h3>
+                <p>Gestionamos tus primeras reseñas positivas para generar confianza y credibilidad instantánea.</p>
+            </div>
+            <div class="beneficio-card">
+                <h3>
+                    <span class="beneficio-icon">🎯</span>
+                    Más Visitas al Local
+                </h3>
+                <p>Google Maps lleva a tus clientes directamente a tu puerta con indicaciones paso a paso.</p>
+            </div>
+            <div class="beneficio-card">
+                <h3>
+                    <span class="beneficio-icon">📊</span>
+                    Estadísticas Reales
+                </h3>
+                <p>Ve cuántas personas buscaron tu negocio, te llamaron, visitaron tu web o pidieron indicaciones.</p>
+            </div>
+            <div class="beneficio-card">
+                <h3>
+                    <span class="beneficio-icon">💡</span>
+                    Inversión que se Paga Sola
+                </h3>
+                <p>Con solo 2-3 clientes nuevos al mes ya recuperaste tu inversión. El resto es ganancia pura.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Paquetes -->
+    <section id="paquetes" class="paquetes">
+        <div class="section-header">
+            <span class="section-tag">Paquetes</span>
+            <h2>Elige Tu Plan Perfecto</h2>
+            <p class="section-subtitle">Inversión única que genera retorno por años</p>
+        </div>
+        <div class="paquetes-grid">
+            <div class="paquete-card">
+                <h3>Básico</h3>
+                <div class="precio">S/200<span>Pago único</span></div>
+                <ul>
+                    <li>Perfil Google Business completo</li>
+                    <li>Optimización de categorías</li>
+                    <li>8-10 fotos profesionales</li>
+                    <li>Información completa del negocio</li>
+                    <li>Horarios y contacto</li>
+                    <li>Configuración en 48 horas</li>
+                    <li>Guía básica de uso</li>
+                </ul>
+                <a href="#contacto" class="paquete-btn">Empezar Ahora</a>
+            </div>
+
+            <div class="paquete-card destacado">
+                <div class="badge">⭐ Más Popular</div>
+                <h3>Profesional</h3>
+                <div class="precio">S/400<span>Pago único - Ahorra S/50</span></div>
+                <ul>
+                    <li>Todo lo del plan Básico</li>
+                    <li>15-20 fotos profesionales HD</li>
+                    <li>Descripción SEO optimizada</li>
+                    <li>Gestión de 5 primeras reseñas</li>
+                    <li>Video presentación del negocio</li>
+                    <li>Capacitación completa 1 hora</li>
+                    <li>Soporte prioritario 1 mes</li>
+                    <li>Reporte de resultados mensual</li>
+                </ul>
+                <a href="#contacto" class="paquete-btn">¡Lo Quiero!</a>
+            </div>
+
+            <div class="paquete-card">
+                <h3>Premium</h3>
+                <div class="precio">S/650<span>Pago único + 3 meses soporte</span></div>
+                <ul>
+                    <li>Todo lo del plan Profesional</li>
+                    <li>Gestión activa de reseñas 3 meses</li>
+                    <li>2 publicaciones mensuales</li>
+                    <li>Actualización de fotos mensual</li>
+                    <li>Respuesta a todos los comentarios</li>
+                    <li>Análisis competencia mensual</li>
+                    <li>Soporte premium 3 meses</li>
+                    <li>Garantía de resultados</li>
+                </ul>
+                <a href="#contacto" class="paquete-btn">Contactar</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proceso -->
+    <section id="proceso" class="proceso">
+        <div class="section-header">
+            <span class="section-tag">Proceso Simple</span>
+            <h2>¿Cómo Funciona?</h2>
+            <p class="section-subtitle">De cero a visible en Google en solo 4 pasos</p>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-number">1</div>
+                <div class="timeline-content">
+                    <h3>Conversación Inicial</h3>
+                    <p>Hablamos 15 minutos sobre tu negocio, tus necesidades y objetivos. Analizamos tu situación actual en Google.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-number">2</div>
+                <div class="timeline-content">
+                    <h3>Visita y Captura</h3>
+                    <p>Visitamos tu local, tomamos fotos profesionales de alta calidad y recopilamos toda la información necesaria.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-number">3</div>
+                <div class="timeline-content">
+                    <h3>Configuración Profesional</h3>
+                    <p>Creamos y optimizamos tu perfil de Google Business con técnicas profesionales de SEO local.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-number">4</div>
+                <div class="timeline-content">
+                    <h3>¡Estás en Google!</h3>
+                    <p>En 48-72 horas tu negocio ya está visible en Google Maps recibiendo búsquedas, llamadas y visitas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section id="testimonios" class="testimonios">
+        <div class="section-header">
+            <span class="section-tag">Casos de Éxito</span>
+            <h2>Lo Que Dicen Nuestros Clientes</h2>
+            <p class="section-subtitle">Resultados reales de negocios reales</p>
+        </div>
+        <div class="testimonios-grid">
+            <div class="testimonio-card">
+                <div class="estrellas">⭐⭐⭐⭐⭐</div>
+                <p>"Increíble. Antes nadie me encontraba y dependía solo del boca a boca. Ahora recibo 6-8 llamadas diarias desde Google. La mejor inversión que hice este año."</p>
+                <div class="autor">
+                    <div class="autor-avatar">M</div>
+                    <div class="autor-info">
+                        <div class="autor-nombre">María González</div>
+                        <div class="autor-empresa">Peluquería Stylos - San Isidro</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonio-card">
+                <div class="estrellas">⭐⭐⭐⭐⭐</div>
+                <p>"Gabriel fue súper profesional. Me explicó todo claramente y en 2 semanas ya había recuperado mi inversión. Ahora aparezco antes que talleres mucho más grandes."</p>
+                <div class="autor">
+                    <div class="autor-avatar">C</div>
+                    <div class="autor-info">
+                        <div class="autor-nombre">Carlos Ramírez</div>
+                        <div class="autor-empresa">Taller Mecánico Express - Surco</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonio-card">
+                <div class="estrellas">⭐⭐⭐⭐⭐</div>
+                <p>"No sabía nada de tecnología y Gabriel me enseñó todo. Ahora sé manejar mi perfil yo misma. Las ventas subieron un 40% en solo 1 mes. Totalmente recomendado."</p>
+                <div class="autor">
+                    <div class="autor-avatar">R</div>
+                    <div class="autor-info">
+                        <div class="autor-nombre">Rosa Méndez</div>
+                        <div class="autor-empresa">Restaurante El Sabor Criollo - Miraflores</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>¿Listo para Llenar Tu Agenda de Clientes?</h2>
+            <p>Cada día que esperas es dinero que pierdes. Empieza hoy y en 48 horas estarás visible en Google recibiendo clientes.</p>
+            <div id="contacto" class="contacto-form">
+                <form id="contactForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Nombre Completo *</label>
+                            <input type="text" required placeholder="Ej: Juan Pérez">
+                        </div>
+                        <div class="form-group">
+                            <label>WhatsApp *</label>
+                            <input type="tel" required placeholder="+51 925 583 143">
+                        </div>
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Nombre del Negocio *</label>
+                        <input type="text" required placeholder="Ej: Peluquería María">
+                    </div>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Tipo de Negocio</label>
+                            <select>
+                                <option value="">Selecciona...</option>
+                                <option>Restaurante</option>
+                                <option>Peluquería/Barbería</option>
+                                <option>Taller Mecánico</option>
+                                <option>Ferretería</option>
+                                <option>Bodega</option>
+                                <option>Servicios Profesionales</option>
+                                <option>Otro</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Paquete de Interés</label>
+                            <select>
+                                <option value="">Selecciona...</option>
+                                <option>Básico - S/200</option>
+                                <option>Profesional - S/400</option>
+                                <option>Premium - S/650</option>
+                                <option>Aún no decido</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Mensaje (Opcional)</label>
+                        <textarea rows="3" placeholder="Cuéntanos sobre tu negocio..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">Solicitar Información Gratis</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>📍 Visible Digital Business</h3>
+                <p>Ayudamos a negocios locales a crecer con presencia digital profesional en Google Business Profile. Más visibilidad, más clientes, más ventas.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Servicios</h4>
+                <ul>
+                    <li><a href="#paquetes">Google Business</a></li>
+                    <li><a href="#paquetes">Gestión de Reseñas</a></li>
+                    <li><a href="#paquetes">Fotografía Profesional</a></li>
+                    <li><a href="#paquetes">Soporte Mensual</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Empresa</h4>
+                <ul>
+                    <li><a href="#testimonios">Casos de Éxito</a></li>
+                    <li><a href="#proceso">Cómo Funciona</a></li>
+                    <li><a href="#beneficios">Beneficios</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contacto</h4>
+                <ul>
+                    <li>📱 +51 925 583 143</li>
+                    <li>📧 info@visibldigital.pe</li>
+                    <li>📍 Lima, Perú</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Visible Digital Business. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/51925583143?text=Hola%20Gabriel%2C%20quiero%20información%20sobre%20Google%20Business%20para%20mi%20negocio" class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
+        💬
+    </a>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // WhatsApp message
+            const mensaje = `¡Hola Gabriel! 👋
+
+Quiero información sobre Visible Digital Business:
+
+👤 Nombre: ${data.nombre || 'No especificado'}
+📱 WhatsApp: ${data.whatsapp || 'No especificado'}
+🏪 Negocio: ${data.negocio || 'No especificado'}
+🏷️ Tipo: ${data.tipo || 'No especificado'}
+📦 Paquete: ${data.paquete || 'No especificado'}
+
+Mensaje: ${data.mensaje || 'Sin mensaje adicional'}`;
+
+            const whatsappURL = `https://wa.me/51925583143?text=${encodeURIComponent(mensaje)}`;
+            window.open(whatsappURL, '_blank');
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards
+        document.querySelectorAll('.problema-card, .beneficio-card, .paquete-card, .testimonio-card, .timeline-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
